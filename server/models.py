@@ -1,6 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
-from enum import Enum
 
 metadata = MetaData(
     naming_convention={
@@ -25,7 +24,7 @@ class Enclosure(db.Model):
     __tablename__ = "enclosures"
 
     id = db.Column(db.Integer, primary_key=True)
-    enviroment = db.Column(Enum("grass", "sand", "water"))
+    enviroment = db.Column(db.String)
     open_to_visitors = db.Column(db.Boolean)
 
     animals = db.relationship("Animal", backref="encolure")
