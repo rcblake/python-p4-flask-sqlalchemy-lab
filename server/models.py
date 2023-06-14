@@ -26,6 +26,9 @@ class Enclosure(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     enviroment = db.Column(Enum("grass", "sand", "water"))
+    open_to_visitors = db.Column(db.Boolean)
+
+    animals = db.relationship("Animal", backref="encolure")
 
 
 class Animal(db.Model):
